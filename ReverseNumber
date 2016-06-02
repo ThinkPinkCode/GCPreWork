@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class ReverseNumber {
+	
+	
+	
+        public static void main(String[] args) {
+        	
+        	// obtaining number input from user
+        	Scanner reader = new Scanner(System.in);  // Reading from System.in
+        	System.out.println("Hello! Let me reverse a number for you. What number would you like to use?");
+        	int n = reader.nextInt();
+               
+                //original number
+                int number = n;
+                int reversedNumber = 0;
+                int temp = 0;
+               
+                while(number > 0){
+                       
+                        //use modulus operator to strip off the last digit
+                        temp = number%10;
+                       
+                        //create the reversed number
+                        reversedNumber = reversedNumber * 10 + temp;
+                        number = number/10;
+                         
+                }
+               
+                //output the reversed number
+                System.out.println("Nice choice! That number reversed is: " + reversedNumber);
+        }
+}
