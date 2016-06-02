@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+public class DifferenceBetweenDates {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Welcome to the date calculator!");
+		System.out.println("");
+		System.out.println("I can calculate the time difference between any two dates you give me. Let's get started...");
+		Scanner scanner = new Scanner(System.in); // create a scanner object
+
+		int year1, year2, month1, month2, day1, day2;
+
+		// prompt for first date input
+		System.out.println("Beginning Date");
+		System.out.println("Month Number?");
+		
+		month1 = scanner.nextInt();
+		
+		//check to see if it is a valid month
+		if (month1 > 12 || month1 < 1)
+		{
+			System.out.println("Invalid entry. Please enter the month number (i.e. 1 for January, 2 for February)");
+			System.out.println("Month Number?");
+			month1 = scanner.nextInt();
+		}
+		
+		
+		System.out.println("Day?");
+		
+		day1 = scanner.nextInt();
+		
+		if (day1 > 31 || day1 < 1)
+		{
+			System.out.println("Invalid entry. Please enter the day number.");
+			System.out.println("Day?");
+			day1 = scanner.nextInt();
+		}
+		
+		
+		System.out.println("Year? (4 digit format please)");
+		
+		year1 = scanner.nextInt(); 
+		
+		if (year1 > 3000 || year1 < 1000)
+		{
+			System.out.println("Try again! The year must be in 4 digit format. For example, 1999.");
+			System.out.println("Year?");
+			year1 = scanner.nextInt(); 
+		}
+		
+		
+		
+		
+
+		System.out.println("Ending Date");
+		System.out.println("Month Number?");
+		month2 = scanner.nextInt();
+
+		if (month2 > 12 || month2 < 1)
+		{
+			System.out.println("Invalid entry. Please enter the month number (i.e. 1 for January, 2 for February)");
+			System.out.println("Month number?");
+			month2 = scanner.nextInt();
+		}
+		
+		System.out.println("Day?");
+		
+		day2 = scanner.nextInt();
+		
+		if (day2 > 31 || day2 < 1)
+		{
+			System.out.println("Invalid entry. Please enter the day number.");
+			System.out.println("Day?");
+			day2 = scanner.nextInt();
+		}
+		
+		System.out.println("Year? (4 digit format please)");
+		year2 = scanner.nextInt(); 
+		if (year2 > 3000 || year2 < 1000)
+		{
+			System.out.println("Try again! The year must be in 4 digit format. For example, 1999.");
+			System.out.println("Year?");
+			year2 = scanner.nextInt(); 
+		}
+		
+	
+		
+		// convert the input to days(approximate since not every year/day has the same amount of days)
+		int date1 = (year1 * 365 + month1 * 30) + day1; 
+		int date2 = (year2 * 365 + month2 * 30) + day2;
+
+		int durationdifferance = date2 - date1; // note this CAN be negative if date1 is after date2
+
+		// convert back 
+		int year = durationdifferance / 365;
+		int month = (durationdifferance % 365) / 30;
+		int day = (durationdifferance % 365) % 30;
+
+		// output the difference
+		System.out.println("The difference between these dates is " + year + " years " + month + " months and " + day + " days");
+	}
+}
